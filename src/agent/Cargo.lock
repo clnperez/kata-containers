@@ -140,10 +140,14 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "0e4cec68f03f32e44924783795810fa50a7035d8c8ebe78580ad7e6c703fba38"
 
 [[package]]
-name = "bytes"
-version = "1.0.1"
+name = "capctl"
+version = "0.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b700ce4376041dcd0a327fd0097c41095743c4c8af8887265942faf1100bd040"
+checksum = "eea0d91a34c56f0a0779e1cc2ec7040fa7f672819c4d3fe7d9dd4af3d2e78aca"
+dependencies = [
+ "bitflags",
+ "libc",
+]
 
 [[package]]
 name = "caps"
@@ -529,6 +533,7 @@ version = "0.1.0"
 dependencies = [
  "anyhow",
  "async-trait",
+ "capctl",
  "cgroups-rs",
  "futures",
  "ipnetwork",
@@ -540,7 +545,6 @@ dependencies = [
  "netlink-sys",
  "nix 0.17.0",
  "oci",
- "prctl",
  "procfs",
  "prometheus",
  "protobuf",
@@ -774,18 +778,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "nix"
-version = "0.19.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b2ccba0cfe4fdf15982d1674c69b1fd80bad427d293849982668dfe454bd61f2"
-dependencies = [
- "bitflags",
- "cc",
- "cfg-if 1.0.0",
- "libc",
-]
-
-[[package]]
 name = "nom"
 version = "2.2.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -923,16 +915,6 @@ name = "ppv-lite86"
 version = "0.2.10"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ac74c624d6b2d21f425f752262f42188365d7b8ff1aff74c82e45136510a4857"
-
-[[package]]
-name = "prctl"
-version = "1.0.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "059a34f111a9dee2ce1ac2826a68b24601c4298cfeb1a587c3cb493d5ab46f52"
-dependencies = [
- "libc",
- "nix 0.19.1",
-]
 
 [[package]]
 name = "proc-macro-hack"
@@ -1261,6 +1243,7 @@ version = "0.1.0"
 dependencies = [
  "anyhow",
  "async-trait",
+ "capctl",
  "caps",
  "cgroups-rs",
  "dirs",
@@ -1271,7 +1254,6 @@ dependencies = [
  "nix 0.17.0",
  "oci",
  "path-absolutize",
- "prctl",
  "protobuf",
  "protocols",
  "regex",
